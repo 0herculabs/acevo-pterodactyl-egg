@@ -1,0 +1,172 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": null
+    },
+    "exported_at": "2026-09-27T00:00:00+02:00",
+    "name": "Assetto Corsa EVO - 0herculabs Pterodactyl",
+    "author": "info@herculabs.es",
+    "description": "Assetto Corsa EVO dedicated server for Pterodactyl. Uses the Pterodactyl-ready image from 0herculabs/acevo-server and stores persistent data under /home/container. No custom Wings mounts are required.",
+    "features": null,
+    "docker_images": {
+        "0herculabs AC EVO (Pterodactyl)": "ghcr.io/0herculabs/acevo-server:pterodactyl"
+    },
+    "file_denylist": [],
+    "startup": "/opt/acevo/scripts/start.sh",
+    "config": {
+        "files": "{}",
+        "startup": "{\"done\":\"AC EVO dashboard listening on\"}",
+        "logs": "{}",
+        "stop": "^^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!/bin/bash\nset -e\nmkdir -p /mnt/server\necho \"Pterodactyl-ready image handles installation and updates at runtime.\"\n",
+            "container": "debian:bookworm-slim",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": [
+        {
+            "name": "Steam Username",
+            "description": "Steam account name (not email) used by SteamCMD.",
+            "env_variable": "STEAM_USERNAME",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:64",
+            "field_type": "text"
+        },
+        {
+            "name": "Steam Password",
+            "description": "Steam account password used by SteamCMD.",
+            "env_variable": "STEAM_PASSWORD",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:128",
+            "field_type": "text"
+        },
+        {
+            "name": "Steam Guard Code",
+            "description": "Optional one-time Steam Guard code. Clear it after authentication succeeds.",
+            "env_variable": "STEAM_AUTH_CODE",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "nullable|string|max:16",
+            "field_type": "text"
+        },
+        {
+            "name": "Auto Update",
+            "description": "Check for server updates with SteamCMD on each container start.",
+            "env_variable": "AUTO_UPDATE",
+            "default_value": "true",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|in:true,false",
+            "field_type": "text"
+        },
+        {
+            "name": "Steam Validate",
+            "description": "Validate Steam files during update. This is slower.",
+            "env_variable": "STEAM_VALIDATE",
+            "default_value": "false",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|in:true,false",
+            "field_type": "text"
+        },
+        {
+            "name": "Auto Start Server",
+            "description": "Automatically start the game server when the dashboard starts.",
+            "env_variable": "AUTO_START_SERVER",
+            "default_value": "true",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|in:true,false",
+            "field_type": "text"
+        },
+        {
+            "name": "Force Software Rendering",
+            "description": "Use software rendering for headless hosts without a GPU.",
+            "env_variable": "ACEVO_FORCE_SOFTWARE_RENDERING",
+            "default_value": "true",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|in:true,false",
+            "field_type": "text"
+        },
+        {
+            "name": "Server Name",
+            "description": "Public server name shown in AC EVO.",
+            "env_variable": "SERVER_NAME",
+            "default_value": "AC EVO Dedicated Server",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:128",
+            "field_type": "text"
+        },
+        {
+            "name": "Server TCP Port",
+            "description": "Game TCP port. Must use the same numeric value as UDP.",
+            "env_variable": "SERVER_TCP_PORT",
+            "default_value": "9700",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|integer|between:1024,65535",
+            "field_type": "text"
+        },
+        {
+            "name": "Server UDP Port",
+            "description": "Game UDP port. Must use the same numeric value as TCP.",
+            "env_variable": "SERVER_UDP_PORT",
+            "default_value": "9700",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|integer|between:1024,65535",
+            "field_type": "text"
+        },
+        {
+            "name": "Server HTTP Port",
+            "description": "HTTP/listing port used by the AC EVO server.",
+            "env_variable": "SERVER_HTTP_PORT",
+            "default_value": "8080",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|integer|between:1024,65535",
+            "field_type": "text"
+        },
+        {
+            "name": "Dashboard Port",
+            "description": "Web dashboard TCP port.",
+            "env_variable": "DASHBOARD_PORT",
+            "default_value": "8090",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|integer|between:1024,65535",
+            "field_type": "text"
+        },
+        {
+            "name": "Dashboard Username",
+            "description": "HTTP Basic Auth username for the dashboard.",
+            "env_variable": "DASHBOARD_USER",
+            "default_value": "admin",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:64",
+            "field_type": "text"
+        },
+        {
+            "name": "Dashboard Password",
+            "description": "HTTP Basic Auth password. Leaving this empty disables authentication and is not recommended.",
+            "env_variable": "DASHBOARD_PASSWORD",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "nullable|string|max:128",
+            "field_type": "text"
+        }
+    ]
+}
