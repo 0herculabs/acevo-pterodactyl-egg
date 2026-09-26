@@ -7,7 +7,7 @@
     "exported_at": "2026-09-27T00:00:00+02:00",
     "name": "Assetto Corsa EVO - 0herculabs Pterodactyl",
     "author": "info@herculabs.es",
-    "description": "Assetto Corsa EVO dedicated server for Pterodactyl. Uses the Pterodactyl-ready image from 0herculabs/acevo-server and stores persistent data under /home/container. No custom Wings mounts are required.",
+    "description": "Assetto Corsa EVO dedicated server for Pterodactyl. Uses the primary Pterodactyl allocation automatically for the AC EVO game TCP/UDP port, the 0herculabs Pterodactyl-ready image, and persistent data under /home/container. No custom Wings mounts are required.",
     "features": null,
     "docker_images": {
         "0herculabs AC EVO (Pterodactyl)": "ghcr.io/0herculabs/acevo-server:pterodactyl"
@@ -106,26 +106,6 @@
             "user_viewable": true,
             "user_editable": true,
             "rules": "required|string|max:128",
-            "field_type": "text"
-        },
-        {
-            "name": "Server TCP Port",
-            "description": "Game TCP port. Must use the same numeric value as UDP.",
-            "env_variable": "SERVER_TCP_PORT",
-            "default_value": "9700",
-            "user_viewable": true,
-            "user_editable": true,
-            "rules": "required|integer|between:1024,65535",
-            "field_type": "text"
-        },
-        {
-            "name": "Server UDP Port",
-            "description": "Game UDP port. Must use the same numeric value as TCP.",
-            "env_variable": "SERVER_UDP_PORT",
-            "default_value": "9700",
-            "user_viewable": true,
-            "user_editable": true,
-            "rules": "required|integer|between:1024,65535",
             "field_type": "text"
         },
         {
