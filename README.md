@@ -29,11 +29,11 @@ This project is based on a Pterodactyl-focused fork of [zino1337/acevo-server](h
 
 | Purpose | Port | Protocol |
 |---|---:|---|
-| Game server | 9700 | TCP + UDP |
-| HTTP / listing | 8080 | TCP |
-| Web dashboard | 8090 | TCP |
+| Game server | Primary allocation | TCP + UDP |
+| HTTP / listing | 8080 by default | TCP |
+| Web dashboard | 8090 by default | TCP |
 
-Make sure the matching allocations exist on the Pterodactyl server.
+The game TCP/UDP port is automatically taken from Pterodactyl's primary allocation. Make sure the HTTP/listing and dashboard ports also have matching allocations if you expose them externally.
 
 ## Main variables
 
@@ -41,8 +41,6 @@ Make sure the matching allocations exist on the Pterodactyl server.
 - `STEAM_PASSWORD`
 - `STEAM_AUTH_CODE`
 - `SERVER_NAME`
-- `SERVER_TCP_PORT`
-- `SERVER_UDP_PORT`
 - `SERVER_HTTP_PORT`
 - `DASHBOARD_PORT`
 - `DASHBOARD_USER`
