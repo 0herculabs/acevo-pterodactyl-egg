@@ -7,7 +7,7 @@
     "exported_at": "2026-09-27T00:00:00+02:00",
     "name": "Assetto Corsa EVO - 0herculabs Pterodactyl",
     "author": "info@herculabs.es",
-    "description": "Assetto Corsa EVO dedicated server for Pterodactyl. Uses the primary Pterodactyl allocation automatically for the AC EVO game TCP/UDP port, the 0herculabs Pterodactyl-ready image, and persistent data under /home/container. No custom Wings mounts are required.",
+    "description": "Assetto Corsa EVO dedicated server for Pterodactyl. Pterodactyl manages Steam credentials and network infrastructure, while the web dashboard manages gameplay/server configuration. The primary allocation is used automatically for game TCP/UDP, with persistent data under /home/container.",
     "features": null,
     "docker_images": {
         "0herculabs AC EVO (Pterodactyl)": "ghcr.io/0herculabs/acevo-server:pterodactyl"
@@ -96,16 +96,6 @@
             "user_viewable": true,
             "user_editable": true,
             "rules": "required|string|in:true,false",
-            "field_type": "text"
-        },
-        {
-            "name": "Server Name",
-            "description": "Public server name shown in AC EVO.",
-            "env_variable": "SERVER_NAME",
-            "default_value": "AC EVO Dedicated Server",
-            "user_viewable": true,
-            "user_editable": true,
-            "rules": "required|string|max:128",
             "field_type": "text"
         },
         {
