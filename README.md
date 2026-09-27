@@ -47,12 +47,13 @@ The game TCP/UDP port is automatically taken from Pterodactyl's primary allocati
 - `STEAM_VALIDATE`
 - `AUTO_START_SERVER`
 - `ACEVO_FORCE_SOFTWARE_RENDERING`
+- `SERVER_NAME`
 
 ## Configuration ownership
 
 Pterodactyl manages container/infrastructure settings such as Steam credentials, the primary game allocation, HTTP/listing port, dashboard port and dashboard authentication.
 
-Gameplay and server settings — including server name, players, cars, track, weather, sessions and server passwords — are managed from the web dashboard. Saved dashboard configuration is persisted under `/home/container` and is preferred automatically in Pterodactyl mode.
+Gameplay and server settings — including players, cars, track, weather, sessions and server passwords — are managed from the web dashboard. `SERVER_NAME` is also exposed in the Pterodactyl egg for testing/override purposes. Saved dashboard configuration is persisted under `/home/container` and is preferred automatically in Pterodactyl mode.
 
 ## Docker image
 
