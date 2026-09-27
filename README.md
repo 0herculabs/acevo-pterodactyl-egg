@@ -12,7 +12,6 @@ This project is based on a Pterodactyl-focused fork of [zino1337/acevo-server](h
 - Web dashboard support
 - Persistent server data under `/home/container`
 - No custom Wings mounts required
-- Configurable server name
 - Configurable TCP, UDP, HTTP and dashboard ports
 - Automatic synchronization of the egg from the source repository
 
@@ -40,7 +39,6 @@ The game TCP/UDP port is automatically taken from Pterodactyl's primary allocati
 - `STEAM_USERNAME`
 - `STEAM_PASSWORD`
 - `STEAM_AUTH_CODE`
-- `SERVER_NAME`
 - `SERVER_HTTP_PORT`
 - `DASHBOARD_PORT`
 - `DASHBOARD_USER`
@@ -49,6 +47,12 @@ The game TCP/UDP port is automatically taken from Pterodactyl's primary allocati
 - `STEAM_VALIDATE`
 - `AUTO_START_SERVER`
 - `ACEVO_FORCE_SOFTWARE_RENDERING`
+
+## Configuration ownership
+
+Pterodactyl manages container/infrastructure settings such as Steam credentials, the primary game allocation, HTTP/listing port, dashboard port and dashboard authentication.
+
+Gameplay and server settings — including server name, players, cars, track, weather, sessions and server passwords — are managed from the web dashboard. Saved dashboard configuration is persisted under `/home/container` and is preferred automatically in Pterodactyl mode.
 
 ## Docker image
 
